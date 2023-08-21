@@ -4,11 +4,28 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+    <title>Taxi Queue App (With No API)</title>
 
 	<script src="//unpkg.com/alpinejs" defer></script>
 	<script src="taxi-queue.no-api.js"></script>
 	<link rel="stylesheet" href="../style.css">
+
+<!--   
+<body x-data="TaxiQueue()"> 
+    <h1>TEST SECTION: Taxi Queue App (No API)</h1>
+    <div id="queueStatus">
+        <p>People in queue: <span x-text="queueLength()"></span></p>
+        <p>Taxis in queue: <span x-text="taxiQueueLength()"></span></p>
+    </div>
+    <button x-on:click="joinQueue()">Add Person to Queue</button>
+    <button x-on:click="leaveQueue()">Remove Person from Queue</button>
+    <button x-on:click="joinTaxiQueue()">Add Taxi to Queue</button>
+    <button x-on:click="taxiDepart()">Remove Taxi from Queue</button>
+
+
+</body>
+-->
+
 
 </head>
 <body x-data="TaxiQueue" >
@@ -25,9 +42,11 @@
 			<img src="../images/queue.png" alt="" width="100">
 			<img src="../images/queue.png" alt="" width="100">
 			<img src="../images/queue.png" alt="" width="100">
-			<span class="passenger_queue_count count" >0</span>
-			<button class="join_queue">Join</button>
-			<button class="leave_queue">Leave</button>
+			<span class="passenger_queue_count count" x-text="queueLength()">0</span>
+			<!-- <button class="join_queue">Join</button> -->
+			<!-- <button class="leave_queue">Leave</button> -->
+			<button x-on:click="joinQueue()">Join Person to Queue</button>
+			<button x-on:click="leaveQueue()">Remove Person from Queue</button>
 	
 		</div>
 	
@@ -36,8 +55,9 @@
 			<img src="../images/minivan.png" alt="" width="100">
 			<img src="../images/minivan.png" alt="" width="100">
 			<img src="../images/minivan.png" alt="" width="100">
-			<span class="taxi_queue_count count" >0</span>
-			<button class="join_taxi_queue">Join queue</button>
+			<span class="taxi_queue_count count" x-text="taxiQueueLength()" >0</span>
+			<!-- <button class="join_taxi_queue">Join queue</button> -->
+			<button x-on:click="joinTaxiQueue()">Join Taxi to Queue</button>
 		</div>
 	
 		<div class="section" >
@@ -46,8 +66,9 @@
 			<img src="../images/arrow.png" alt="" width="100">
 			<img src="../images/arrow.png" alt="" width="100">
 			<img src="../images/minivan.png" alt="" width="100">
-			<!-- <span class="taxi_queue_count count" >0</span> -->
-			<button class="depart">Depart</button>
+			<span class="depart_queue_count count" x-text="taxiDepart()">0</span>
+			<!-- <button class="depart">Depart</button> -->
+			<button x-on:click="taxiDepart()">Depart Taxi from Queue</button>
 		</div>
 	
 

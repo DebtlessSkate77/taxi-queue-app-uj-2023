@@ -61,7 +61,8 @@ describe('The taxi queue app', function() {
 
 	});
 
-	it ('should allow taxis to join the queue', async function() {
+	it ('should allow taxis to join the queue', 
+		async function() {
 		
 		await joinTaxiQueue();
 		await joinTaxiQueue();
@@ -71,7 +72,8 @@ describe('The taxi queue app', function() {
 
 	});
 
-	it ('should allow taxis to leave the queue if there is enough passengers queueing', async function() {
+	it ('should allow taxis to leave the queue if there is enough passengers queueing', 
+		async function() {
 
 		await joinQueue(); // 1
 		await joinQueue();
